@@ -23,7 +23,7 @@
 
 	.flow-control {
 		position: fixed;
-		left: 400px;
+		left: 420px;
   		top: 650px;
 		width: 200px;
 		height: 60px;
@@ -65,7 +65,7 @@
 
 	.next-button {
 		position: fixed;
-		left: 920px;
+		left: 930px;
   		top: 660px;
   		background-color: gray;
 		border: none;
