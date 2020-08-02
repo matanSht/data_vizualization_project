@@ -22,11 +22,11 @@
 	}
 
 	.flow-control {
+		position: absolute;
+		left: 880px;
+  		top: 800px;
 		width: 200px;
 		height: 60px;
-		margin-top: -60px;
-		margin-left: 400px;
-		margin-bottom: 5px;
 		border-style: none;
 	}
 
@@ -66,7 +66,7 @@
 	.next-button {
 		position: absolute;
 		left: 880px;
-  		top: 840px;
+  		top: 800px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
