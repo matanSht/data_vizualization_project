@@ -24,7 +24,7 @@
 	.flow-control {
 		position: fixed;
 		left: 400px;
-  		top: 600px;
+  		top: 650px;
 		width: 200px;
 		height: 60px;
 		border-style: none;
@@ -66,7 +66,7 @@
 	.next-button {
 		position: fixed;
 		left: 880px;
-  		top: 600px;
+  		top: 650px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
@@ -82,7 +82,7 @@
 	.prv-button {
 		position: fixed;
 		left: 40px;
-  		top: 600px;
+  		top: 650px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
