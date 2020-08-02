@@ -1,85 +1,10 @@
 <!DOCTYPE html>
 <script src="https://d3js.org/d3.v5.min.js"></script>
-<style>
-	.flow-control {
-		width: 440px;
-		height: 60px;
-		margin: 20px;
-		border-color: black;
-		border-radius: 10px;
-                border-style: solid;
-		border-width: 2px;
-	}
-	.main-para {
-		width: 440px;
-		height: 540px;
-		margin: 20px;
-		border-color: black;
-		border-radius: 10px;
-                border-style: solid;
-		border-width: 2px;
-	}
+<head>
+	<link rel="stylesheet" href="https://matanSht.github.io/data_vizualization_project/style.css">
+</head>
 
-	.main-graphic {
-		width: 440px;
-		height: 540px;
-		margin: -564px 20px 20px 480px;
-		border-color: black;
-		border-radius: 10px;
-                border-style: solid;
-		border-width: 2px;
-	}
-
-	.button {
-  		background-color: gray;
-		border: none;
-		border-radius: 5px;
-  		color: white;
-		padding: 10px 10px;
-  		text-align: center;
-  		text-decoration: none;
-  		display: inline-block;
-  		font-size: 16px;
-  		margin: 10px 5px 5px 10px;
-  		cursor: pointer;
-	}
-	.cur-button {
-  		background-color: #D3D3D3;
-		border: none;
-		border-radius: 5px;
-  		color: white;
-		padding: 10px 10px;
-  		text-align: center;
-  		text-decoration: none;
-  		display: inline-block;
-  		font-size: 16px;
-  		margin: 10px 5px 5px 10px;
-		cursor: default;
-	}
-
-	.delta-line {
-		stroke: steelblue;
-      		stroke-width: 2px;
-      		stroke-dasharray: 3;
-	}
-
-	#tooltip {
-		opacity: 0;
-		position: absolute;
-		text-align: center;
-		width: 120px;
-		height 40px;
-		background: white;
-		border: 2px;
-		border-color: black;
-		border-style: solid;
-		border-radius: 5px;
-	}
-
-</style>
-
-
-</head><body witdh="960px" height="680px">
+<body witdh="960px" height="680px">
 	<div id="controler" class="flow-control">
 		<a href="http://matanSht.github.io/data_vizualization_project/index.html" class="button">1</a>
 		<a href="http://matanSht.github.io/data_vizualization_project/p2.html" class="button">2</a>
