@@ -24,7 +24,7 @@
 	.flow-control {
 		position: fixed;
 		left: 400px;
-  		top: 700px;
+  		top: 600px;
 		width: 200px;
 		height: 60px;
 		border-style: none;
@@ -40,7 +40,7 @@
   		text-decoration: none;
   		display: inline-block;
   		font-size: 16px;
-  		margin: 10px 5px 5px 10px;
+  		margin: 10px 5px 0px 10px;
   		cursor: pointer;
 	}
 	.cur-button {
@@ -53,7 +53,7 @@
   		text-decoration: none;
   		display: inline-block;
   		font-size: 16px;
-  		margin: 10px 5px 5px 10px;
+  		margin: 10px 5px 0px 10px;
 		cursor: default;
 	}
 
@@ -66,7 +66,7 @@
 	.next-button {
 		position: fixed;
 		left: 880px;
-  		top: 700px;
+  		top: 600px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
@@ -82,7 +82,7 @@
 	.prv-button {
 		position: fixed;
 		left: 40px;
-  		top: 700px;
+  		top: 600px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
