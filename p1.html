@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <script src="https://d3js.org/d3.v5.min.js"></script>
+
 <head>
 	<link rel="stylesheet" href="https://matanSht.github.io/data_vizualization_project/style.css">
 </head>
 
 
-<body>
+<body width="1000px" height="1000px">
+		
 	<div class="center-division">
 		<div id="text-area" class="main-para">
 			<p>Hello</p>
@@ -13,14 +15,108 @@
 
 		<div id="graph-area" class="main-graphic">
 		</div>	
-		<a href="http://matanSht.github.io/data_vizualization_project/p3.html" class="next-button">Next</a>
+		<a href="http://matanSht.github.io/data_vizualization_project/p2.html" class="next-button">Next</a>
 		<a href="http://matanSht.github.io/data_vizualization_project/index.html" class="prv-button">Back</a>
 		<div id="controler" class="flow-control">
 			<a href="http://matanSht.github.io/data_vizualization_project/index.html" class="button">1</a>
-			<a href="#" class="cur-button">2</a>			
-			<a href="http://matanSht.github.io/data_vizualization_project/p3.html" class="button">3</a>
-			<a href="http://matanSht.github.io/data_vizualization_project/p4.html" class="button">4</a>
+			<a href="#" class="cur-button">2</a>
+			<a href="http://matanSht.github.io/data_vizualization_project/p2.html" class="button">3</a>
+			<a href="http://matanSht.github.io/data_vizualization_project/p3.html" class="button">4</a>
+			<a href="http://matanSht.github.io/data_vizualization_project/p4.html" class="button">5</a>
 		</div>
 	</div>
+	
+	
 	<div id="tooltip"></div>
-</body>
+
+  <script>
+
+
+	
+    const dataset = [
+                  [ 1,   40.06 ],
+                  [ 2,   40.11 ],
+                  [ 3,   40.27 ],
+                  [ 4,   40.73 ],
+                  [ 5,   40.91 ],
+                  [ 6,   41.2 ],
+                  [ 7,   41.04 ],
+                  [ 8,   41.34 ],
+                  [ 9,   41.8 ],
+                  [ 10,  41.98 ]
+                ];
+
+    const w = 400;
+    const h = 480;
+    const padding = 60;
+
+    const xScale = d3.scaleLinear()
+                     .domain([0, d3.max(dataset, (d) => d[0])])
+                     .range([padding, w - padding]);
+
+    const yScale = d3.scaleLinear()
+                     .domain([d3.min(dataset, (d) => d[1] - 0.2), d3.max(dataset, (d) => d[1] + 0.2)])
+                     .range([h - padding, padding]);
+
+    const svg = d3.select("body").select("#graph-area").append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+
+    var tooltip = d3.select("#tooltip");
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", (d) => xScale(d[0]))
+       .attr("cy",(d) => yScale(d[1]))
+       .attr("r", (d) => 3)
+	   .attr("fill", "blue")
+	   .on("mouseover", function(d,i) {
+			tooltip.style("opacity",1)
+				   .style("left",(d3.event.pageX + 2 ) + "px")
+				   .style("top",(d3.event.pageY + 2 ) + "px")
+				   .html("Run: " + d[0] + ", Value: " + d[1]);
+				   } )
+	   .on("mouseout", function() {tooltip.style("opacity" , 0) });
+	   
+
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+
+    svg.append("g")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
+
+    //x axis title
+    svg.append("text")             
+      .attr("transform",
+            "translate(" + (w/2) + " ," + 
+                           h + ")")
+      .style("text-anchor", "middle")
+      .text("Run Id");
+
+
+    svg.append("g")
+       .attr("transform", "translate(" + padding +"," + 0 + ")")
+       .call(yAxis);
+
+    // text label for the y axis
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("x",0 - h/ 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("CD [nm]");   
+
+
+
+  </script>
+
+
+
+
+
+</body></html>
