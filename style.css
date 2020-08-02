@@ -65,8 +65,8 @@
 
 	.next-button {
 		position: fixed;
-		left: 880px;
-  		top: 650px;
+		left: 920px;
+  		top: 660px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
@@ -82,7 +82,7 @@
 	.prv-button {
 		position: fixed;
 		left: 40px;
-  		top: 650px;
+  		top: 660px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
