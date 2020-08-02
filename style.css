@@ -23,9 +23,9 @@
 
 	.flow-control {
 		position: fixed;
-		left: 420px;
+		left: 400px;
   		top: 650px;
-		width: 200px;
+		width: 250px;
 		height: 60px;
 		border-style: none;
 	}
