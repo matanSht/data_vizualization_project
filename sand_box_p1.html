@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<style>
+	.flow-control {
+		width: 440px;
+		height: 60px;
+		margin: 20px;
+		border-color: black;
+		border-radius: 10px;
+                border-style: solid;
+		border-width: 2px;
+	}
+	.main-para {
+		width: 440px;
+		height: 540px;
+		margin: 20px;
+		border-color: black;
+		border-radius: 10px;
+                border-style: solid;
+		border-width: 2px;
+	}
+
+	.main-graphic {
+		width: 440px;
+		height: 540px;
+		margin: -564px 20px 20px 480px;
+		border-color: black;
+		border-radius: 10px;
+                border-style: solid;
+		border-width: 2px;
+	}
+
+	.button {
+  		background-color: gray;
+		border: none;
+		border-radius: 5px;
+  		color: white;
+		padding: 10px 10px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 10px 5px 5px 10px;
+  		cursor: pointer;
+	}
+	.cur-button {
+  		background-color: #D3D3D3;
+		border: none;
+		border-radius: 5px;
+  		color: white;
+		padding: 10px 10px;
+  		text-align: center;
+  		text-decoration: none;
+  		display: inline-block;
+  		font-size: 16px;
+  		margin: 10px 5px 5px 10px;
+		cursor: default;
+	}
+
+	#tooltip {
+		opacity: 0;
+		position: absolute;
+		text-align: center;
+		width: 120px;
+		height 40px;
+		background: white;
+		border: 2px;
+		border-color: black;
+		border-style: solid;
+		border-radius: 5px;
+	}
+
+</style>
+
+
+</head><body witdh="960px" height="680px">
+	<div id="controler" class="flow-control">
+		<a href="#" class="cur-button">1</a>
+		<a href="C:\Users\mshteiman116986\Documents\2. Personal\UIUC\data viz\sand_box_p2.html" class="button">2</a>
+		<a href="C:\Users\mshteiman116986\Documents\2. Personal\UIUC\data viz\sand_box_p3.html" class="button">3</a>
+	</div>
+
+	<div id="text-area" class="main-para">
+		<p>Hello</p>
+	</div>
+
+	<div id="graph-area" class="main-graphic">
+
+	</div>
+	<div id="tooltip"></div>
+
+  <script>
+
+
+	
+    const dataset = [
+                  [ 1,   40.06 ],
+                  [ 2,   40.11 ],
+                  [ 3,   40.27 ],
+                  [ 4,   40.73 ],
+                  [ 5,   40.91 ],
+                  [ 6,   41.2 ],
+                  [ 7,   41.04 ],
+                  [ 8,   41.34 ],
+                  [ 9,   41.8 ],
+                  [ 10,  41.98 ]
+                ];
+
+    const w = 400;
+    const h = 480;
+    const padding = 60;
+
+    const xScale = d3.scaleLinear()
+                     .domain([0, d3.max(dataset, (d) => d[0])])
+                     .range([padding, w - padding]);
+
+    const yScale = d3.scaleLinear()
+                     .domain([d3.min(dataset, (d) => d[1] - 0.2), d3.max(dataset, (d) => d[1] + 0.2)])
+                     .range([h - padding, padding]);
+
+    const svg = d3.select("body").select("#graph-area").append("svg")
+                  .attr("width", w)
+                  .attr("height", h);
+
+
+    var tooltip = d3.select("#tooltip");
+
+    svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", (d) => xScale(d[0]))
+       .attr("cy",(d) => yScale(d[1]))
+       .attr("r", (d) => 3)
+	   .attr("fill", "blue")
+	   .on("mouseover", function(d,i) {
+			tooltip.style("opacity",1)
+				   .style("left",(d3.event.pageX + 2 ) + "px")
+				   .style("top",(d3.event.pageY + 2 ) + "px")
+				   .html("Run: " + d[0] + ", Value: " + d[1]);
+				   } )
+	   .on("mouseout", function() {tooltip.style("opacity" , 0) });
+	   
+
+    const xAxis = d3.axisBottom(xScale);
+    const yAxis = d3.axisLeft(yScale);
+
+    svg.append("g")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(xAxis);
+
+    //x axis title
+    svg.append("text")             
+      .attr("transform",
+            "translate(" + (w/2) + " ," + 
+                           h + ")")
+      .style("text-anchor", "middle")
+      .text("Run Id");
+
+
+    svg.append("g")
+       .attr("transform", "translate(" + padding +"," + 0 + ")")
+       .call(yAxis);
+
+    // text label for the y axis
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 5)
+      .attr("x",0 - h/ 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("CD [nm]");   
+
+
+
+  </script>
+
+
+
+
+
+</body></html>
