@@ -66,7 +66,7 @@
 	.next-button {
 		position: absolute;
 		left: 880px;
-  		top: 900px;
+  		top: 800px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
@@ -80,6 +80,9 @@
 	}
 
 	.prv-button {
+		position: absolute;
+		left: 40px;
+  		top: 800px;
   		background-color: gray;
 		border: none;
 		border-radius: 5px;
@@ -89,9 +92,7 @@
   		text-decoration: none;
   		display: inline-block;
   		font-size: 16px;
-		margin-left: 20px;
-		margin-bottom: 15px;
-  		cursor: pointer;
+		cursor: pointer;
 	}
 
 	#tooltip {
